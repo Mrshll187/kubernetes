@@ -1,0 +1,39 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: xxx
+  labels:
+    app: xxx
+spec:
+  type: NodePort
+  selector:
+    app: shopfront
+  ports:
+  - protocol: TCP
+    port: 8080
+    name: http
+
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: xxx
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: shopfront
+    spec:
+      containers:
+      - name: xxx
+        image: mrshll187/xxx:1.0
+        ports:
+        - containerPort: 8010
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
