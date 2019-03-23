@@ -1,6 +1,7 @@
 # Compiled class file
 *.class
 .classpath
+.settings/
 target/*
 
 # Package Files #
