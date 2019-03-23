@@ -8,7 +8,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: shopfront
+    app: xxx
   ports:
   - protocol: TCP
     port: 8080
@@ -24,7 +24,7 @@ spec:
   template:
     metadata:
       labels:
-        app: shopfront
+        app: xxx
     spec:
       containers:
       - name: xxx
